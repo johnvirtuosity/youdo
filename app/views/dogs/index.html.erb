@@ -1,0 +1,31 @@
+<h1>All Dogs Summary</h1>
+
+<div class='add_dog'>
+  <%= form_for(:dog) do |f| %>
+    <%= f.hidden_field :user_id, value: 1%>
+    <%= f.text_field :name, :placeholder => "name" %>
+    <%= f.text_field :breed, :placeholder => "breed" %>
+    <%= f.date_field :date_of_birth %>
+    <%= f.submit value="add dog" %>
+  <% end %>
+</div>
+
+<div>
+  <% if @dogs.present? %>
+    <% @dogs.each do |dog| %>
+      <div>
+      <%= dog.name %>
+      <%= dog.breed %>
+      <%= dog.date_of_birth %>
+      <%= link_to("details", dog_path(dog)) %>	
+      <%= link_to("registrations", dog_regs_path(dog)) %>      
+     </div>
+     <div>
+       <%= button_to "delete #{dog.name}", { action: "destroy", id: dog.id },
+                              method: :delete, data: { confirm: "Are you sure?" } %>
+     </div>
+   <% end %>
+ <% end %>
+</div>
+
+<%= link_to "Back", :back %>

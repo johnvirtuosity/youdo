@@ -1,0 +1,11 @@
+<H1>SHOW Dog Details</H1>
+
+<%= form_for @dog, url: dog_path(@dog),method: :patch do |f| %>
+  <p><%= f.label :name%>
+  <%= f.text_field :name %></p>
+  <p><%= f.label :breed%>
+  <%= f.text_field :breed%></p>
+  <p><%= f.label :date_of_birth %>
+  <%= f.date_field :date_of_birth %></p>
+  <%= f.submit %>
+<% end %>

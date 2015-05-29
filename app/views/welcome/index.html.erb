@@ -1,0 +1,26 @@
+<h1>Doggiedo Dog Registration System</h1>
+<p>Welcome. You have arrived at the home of the dog registration system</p>
+
+<div id='col_1'>
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('My dogs', dogs_path) %>
+  </li>
+  <li>
+    <%= link_to('Add dog', new_dog_path) %>
+  </li>
+  <li>
+    <%= link_to('Edit Profile', edit_user_registration_path) %>
+  </li>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+  <div>
+    
+  </div>  
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>
+</div>

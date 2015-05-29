@@ -1,0 +1,19 @@
+<H1> Registrations </H1>
+
+<div class='add_registration'>
+  <%= form_for(:registration) do |f| %>
+    <%= f.hidden_field :dog_id, value: 1%>
+    <%= f.date_field :registration_start %>
+    <%= f.date_field :registration_end %>
+    <%= f.text_field :rate_id %>
+    <%= f.submit value="add reg." %>
+  <% end %>
+</div>
+
+<% @registrations.each do |reg| %>
+  <%= reg.id %>
+  <%= reg.registration_start %>
+  <%= reg.registration_end %>
+  <%= reg.rate_id %>
+<% end %>
+
