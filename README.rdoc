@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello,
 
-Things you may want to cover:
+I have tried to cover the main functional area's with this challenge.
+DB design
+Retrieving from the DB
+Updating DB
+Rendering pages using form helpers
+Implementing ActionMailer for emails
 
-* Ruby version
+Thanks
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
