@@ -20,7 +20,7 @@
       <%= reg.id %>
       <b><i><%= (reg.registration_start).strftime("%d-%m-%Y") %></i></b> to 
       <b><i><%= (reg.registration_end).strftime("%d-%m-%Y") %></i></b>
-      <%= (@rates.find(reg.rate_id)).period %>
+      <%= (@rates.find(reg.rate_id)).period %> months
     </p>
   <% end %>
 <% end %>
