@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
   end
 
   def registration_confirmation(user,registration)
-  	@user_user = user
+  	@user = user
   	@registration = registration
   	subject  = "New dog registration received." 
     mail(to: @user.email, subject: "#{subject}")

@@ -13,12 +13,12 @@
 <div>
   <% if @dogs.present? %>
     <% @dogs.each do |dog| %>
-      <div>
+    <div>
       <%= dog.name %>
       <%= dog.breed %>
       <%= dog.date_of_birth %>
       <%= link_to("details", dog_path(dog)) %>	
-      <%= link_to("registrations", dog_regs_path(dog)) %>      
+      <%= link_to("registrations", dog_dog_regs_path(dog)) %>      
      </div>
      <div>
        <%= button_to "delete #{dog.name}", { action: "destroy", id: dog.id },

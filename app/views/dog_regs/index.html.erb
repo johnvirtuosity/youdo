@@ -1,23 +1,26 @@
-<H1> Registrations </H1>
+<H1> ALL Registrations </H1>
+<% @rates = Rate.all%>
 
 <div class='add_registration'>
-  <%= form_for(:registration) do |f| %>
+  <%= form_for(:dog_reg) do |f| %>
     <%= f.hidden_field :dog_id, value: 1%>
     <%= f.date_field :registration_start %>
     <%= f.date_field :registration_end %>
-    <%= f.text_field :rate_id %>
+    <% @rates.each do |rate| %>
+      <%= f.radio_button :rate_id,rate.id%><%= rate.period%> months - $<%= rate.cost%>      
+    <% end %>
     <%= f.submit value="add reg." %>
   <% end %>
 </div>
 
 <% if @registrations.present? %>
-  <p>ID - FROM - TO - Period type</p>
+  ID - FROM - TO - Period (months)</p>
   <% @registrations.each do |reg| %>
     <p>
       <%= reg.id %>
-      <%= reg.registration_start %>
-      <%= reg.registration_end %>
-      <%= reg.rate_id %>
+      <b><i><%= (reg.registration_start).strftime("%d-%m-%Y") %></i></b> to 
+      <b><i><%= (reg.registration_end).strftime("%d-%m-%Y") %></i></b>
+      <%= (@rates.find(reg.rate_id)).period %>
     </p>
   <% end %>
 <% end %>
