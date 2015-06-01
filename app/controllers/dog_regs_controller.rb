@@ -1,5 +1,6 @@
 class DogRegsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @registrations = DogReg.all
   end

@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @dogs = Dog.all.includes(:dog_regs)
   end
