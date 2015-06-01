@@ -24,6 +24,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:postadd_1,:postadd_2,:postadd_3)
+    params.require(:user).permit(:name,:postadd_1,:postadd_2,:postadd_3, :is_admin)
   end
 end
