@@ -15,9 +15,7 @@ class DogsController < ApplicationController
 
   def update
     my_params = params[:dog]
-    puts "my_params #{my_params}"
     @dog = Dog.find(params[:id])
-    puts "@@@@@ #{params[:id]}#{params[:name]}"
     @dog.update(name: my_params[:name], breed: my_params[:breed], date_of_birth: my_params[:date_of_birth])
     @dog.save()
     redirect_to dogs_path

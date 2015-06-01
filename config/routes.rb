@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  
   root 'welcome#index'
 
-  resources :dogs
-  resources :dog_regs
+  devise_for :users
+
+  resources :dogs do
+    resources :dog_regs
+  end
   
   resources :rates
 

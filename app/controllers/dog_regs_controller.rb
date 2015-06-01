@@ -9,10 +9,9 @@ class DogRegsController < ApplicationController
   end
 
   def create
-    # @registration = Registration.new(params)
-    @registration = DogReg.new(dog_id: 1, registration_start: '01-02-2001', registration_end: '02-03-2001', rate_id: 1)
+    @registration = DogReg.new(regs_params)
     @registration.save
-    # redirect_to registrations_path    
+    redirect_to dog_dog_regs_path    
     UserMailer.registration_confirmation(current_user,@registration).deliver_now
   end
 
@@ -29,7 +28,7 @@ class DogRegsController < ApplicationController
 
   private
 
-  def params
-    params.require(:registration).permit(:dog_id, :registration_start, :registration_end,:rate_id)
+  def regs_params
+    params.require(:dog_reg).permit(:dog_id, :registration_start, :registration_end,:rate_id)
   end
 end
