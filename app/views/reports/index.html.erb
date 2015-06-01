@@ -1,0 +1,19 @@
+<h1> Summary Dogs Register Listing </h1>
+<% @dogs.each do |dog| %>
+  <li>
+    <%= dog.id %> - 
+    <%= dog.name %> - 
+    <%= dog.breed %> - 
+    <%= dog.date_of_birth.strftime('%d-%m-%Y') %> - 
+    <%= dog.user.name %> - 
+    <%= dog.user.postadd_1 %> 
+    <%= dog.user.postadd_2 %> 
+    <%= dog.user.postadd_3 %> 
+    <% last_reg = DogReg.find(dog.id) %>
+    <% last_reg_period = Rate.find(last_reg.rate_id).period %>
+    <%= last_reg.registration_end.strftime('%d.%m.%Y') %> - 
+    <%= last_reg_period %> months
+    <br>
+  </li>
+<% end %>
+Total Dogs : <b><%= @dogs.count %></b>
